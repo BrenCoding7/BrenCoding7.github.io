@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Home </title>
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start(){
+sjs.open();
+
+var gameover_txt = new sjs.Text("Lime Slime", 60, "lime");
+gameover_txt.center().offset(0,-50);
+
+var restartBtn = new sjs.Button("Level 1", function(){
+window.location = "Lime_Slime.html";
+});
+restartBtn.center();
+
+var restartBtn = new sjs.Button("Level 4", function(){
+window.location = "Lime_Slime4.html";
+});
+restartBtn.center().offset(0,40);
+
+var restartBtn = new sjs.Button("Level 8", function(){
+window.location = "Lime_Slime8.html";
+});
+restartBtn.center().offset(0,80);
+}
+
+</script>
+</head>
+<body onload="start()">
+<h1>  </h1>
+
+<div id="target" style="margin:auto;background:blue;"></div>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<html>
+<head>
+<title> Platform Game </title>
+<script src="https://simplycodingcourses.com/files/simply.js"></script>
+<script>
+
+var level = [];
+
+
+
+
+function start(){
+sjs.open("target",1300, 720);
+
+//Background
+var background = new sjs.Image("Images/Slimebackground.png");
+background.setSize(6320,720);
+
+
+/*sjs.loadImageArray('[{"width":90,"height":90,"x":852,"y":630,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":848,"y":331,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":590,"y":578,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":175,"height":50,"x":1128.108026426712,"y":509,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":1383.608026426712,"y":439,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":1610.608026426712,"y":434,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":27,"height":30,"x":1533.108026426712,"y":462,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Coin.png","alt":"add text","type":"Coin","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":2010.4546388833437,"y":378,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":22,"height":30,"x":2023.4546388833437,"y":527,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Icecream.png","alt":"add text","type":"Icecream","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":2010.4546388833437,"y":630,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":175,"height":50,"x":1782.1080582263758,"y":409,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":2754.408828380936,"y":620,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":66,"height":80,"x":6253,"y":640,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Flag1.png","alt":"add text","type":"flag","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":6133,"y":630,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":6133,"y":288,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":80,"x":6032,"y":640,"sx":0,"sy":0,"topSpeed":10,"src":"Images/jump_pad.png","alt":"add text","type":"jump_pad","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":5029.198106631853,"y":630,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":5218.198106631853,"y":528,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":5422.698106631853,"y":630,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":5630.698106631853,"y":551,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":27,"height":30,"x":5874.954892032777,"y":646,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Coin.png","alt":"add text","type":"Coin","friction":0.05,"classType":"Image"},{"width":27,"height":30,"x":5318.954892032777,"y":526,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Coin.png","alt":"add text","type":"Coin","friction":0.05,"classType":"Image"},{"width":27,"height":30,"x":5587.954892032777,"y":535,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Coin.png","alt":"add text","type":"Coin","friction":0.05,"classType":"Image"},{"width":90,"height":80,"x":4611.807162932186,"y":640,"sx":0,"sy":0,"topSpeed":10,"src":"Images/jump_pad.png","alt":"add text","type":"jump_pad","friction":0.05,"classType":"Image"},{"width":90,"height":80,"x":4925.661545232385,"y":640,"sx":0,"sy":0,"topSpeed":10,"src":"Images/jump_pad.png","alt":"add text","type":"jump_pad","friction":0.05,"classType":"Image"},{"width":27,"height":30,"x":4803.807162932186,"y":495,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Coin.png","alt":"add text","type":"Coin","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":3248.309243398293,"y":443,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":3600.309243398293,"y":448,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":3429.309243398293,"y":630,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":27,"height":30,"x":3458.809243398293,"y":538,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Coin.png","alt":"add text","type":"Coin","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":4024.335112412201,"y":578,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":4118.335112412201,"y":488,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":4201.335112412201,"y":578,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":90,"height":90,"x":4112.335112412201,"y":577,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Lava.png","alt":"add text","type":"Lava","friction":0.05,"classType":"Image"},{"width":27,"height":30,"x":4153.835112412201,"y":440,"sx":0,"sy":0,"topSpeed":10,"src":"Images/Coin.png","alt":"add text","type":"Coin","friction":0.05,"classType":"Image"},{"width":60,"height":150,"x":1713,"y":429,"sx":0,"sy":0,"topSpeed":10,"src":"Images/balloon.png","alt":"add text","type":"balloon","friction":0.01,"classType":"Image","noBounds":true},{"width":175,"height":50,"x":1300.0112945432984,"y":379,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"}]');*/
+
+//Button
+
+
+//Guide
+Movement=false;
+var Guide=new sjs.Image("Images/guide_Left.png")
+Guide.type=Guide;
+Guide.setSize(30,36);
+Guide.moveTo(100,684);
+setTimeout(function() {
+Guide.destroy();
+Movement=true;
+}, 4000)
+
+//Player Properties
+
+
+var player = new sjs.Image("Images/Beginning_Slime.png");
+player.type = "player";
+player.setSize(75,66.15);
+player.setGravity(2.8);
+player.moveTo(0,654.85);
+//2433
+player.friction = .3;
+sjs.scrollable(player,background);
+
+var playyer = [];
+playyer.push(player);
+
+//Player Controls
+var r_images = ["Images/Rightslime1.png", "Images/Rightslime2.png", "Images/Rightslime3.png","Images/Rightslimejump.png"];
+
+var l_images = ["Images/Leftslime1.png", "Images/Leftslime2.png", "Images/Leftslime3.png","Images/leftslimejump.png"];
+
+//Down
+sjs.keyDown(DOWN_KEY, function(){
+		if(Movement==true) {
+	player.setSize(80,50);
+	player.pushDown(2);
+}
+	});
+
+window.addEventListener("keyup", function(e){
+if(e.keyCode == DOWN_KEY){
+	player.setSize(75,66.15);
+}})
+
+
+//Variables
+var r_facing = false;
+var l_facing = false;
+var r_track = 0;
+var l_track = 0;
+/*Syellowbeginning*/
+
+
+
+
+sjs.keyDown(SPACE_KEY, function(){
+if(canShoot == true){
+canShoot = false;
+var Icecreamm = new sjs.Image("Images/Leftcream.png");
+Icecreamm.type = "Icecreamm";
+Icecreamm.setSize(40,20);
+Icecreamm.friction= 0;
+Icecreamm.noBounds= true;
+if(r_facing == true){
+	setTimeout(function(){
+canShoot = true;
+},1500);
+Icecreamm.moveTo(player.getX()+44,player.getY()+7);
+Icecreamm.pushRight(24);
+Icecreamm.setImage("Images/Rightcream.png")
+} else {
+setTimeout(function(){
+canShoot = true;
+},1500);
+setTimeout(function(){
+Icecreamm.moveTo(player.getX()+-60,player.getY()+7);
+Icecreamm.pushLeft(30);
+Icecreamm.setImage("Images/Leftcream.png")
+},0);
+}
+
+} //end canShoot if statement
+}); //end keyDown function DOWN_KEY
+
+
+//Right
+sjs.keyDown(RIGHT_KEY, function(){
+	if(Movement==true) {
+r_facing = true;
+/*l_facing = false;*/
+r_track = r_track + 1;
+player.pushRight(2);
+if(r_track <= 2){
+player.setImage(r_images[r_track]);
+} // end walking if
+if(r_track == 2){
+r_track = 0;
+} // reset walking array
+if(r_track >= 3){
+	player.setImage("Images/Rightslimejump.png");
+	player.setSize(75,70.5882353);
+}
+} //jumping image
+}); //end Right key
+
+//Left
+sjs.keyDown(LEFT_KEY, function(){
+		if(Movement==true) {
+/*l_facing = true;*/
+r_facing = false;
+l_track = l_track + 1;
+player.pushLeft(2);
+if(l_track <= 2){
+player.setImage(l_images[l_track]);
+} //end walking if
+if(l_track == 2){
+l_track = 0;
+} // reset walking array
+if(l_track >= 3){
+player.setImage("Images/leftslimejump.png");
+player.setSize(75,70.5882353);
+}
+}
+}); //end Left key
+
+
+
+
+//remove tisw
+/*var platform = new sjs.Image("Images/platform.png");
+platform.type = "platform";
+platform.setSize(175,50);*/
+
+
+
+
+
+
+
+
+//Jumping Code
+var canJump = true;
+sjs.keyDown(UP_KEY, function(){
+		if(Movement==true) {
+if(canJump == true){
+	canJump = false;
+	player.pushUp(55);
+if(r_facing == true){
+player.setImage("Images/Rightslimejump.png");
+player.setSize(75,70.5882353);
+r_track = 3;
+l_track = 3;
+} else {
+player.setImage("Images/leftslimejump.png");
+player.setSize(75,70.5882353);
+r_track = 3;
+l_track = 3;
+}
+}
+} //end canJump if statement
+}); //end keyDown function
+
+
+sjs.onHit("player","bottom_screen",function(x,y){
+sjs.stoppedBy(x,y);
+//player.setSize(75,66.15);
+if(canJump == false){
+	canJump = true;
+	r_track = 0;
+	l_track = 0;
+	player.setImage("Images/Beginning_Slime.png");
+}
+});
+
+
+
+sjs.onHit("player",["right_screen","left_screen","top_screen"],function(x,y){
+sjs.stoppedBy(x,y);
+});
+player.noBounds = true;
+
+//Player-Platform Onhit
+sjs.onHit("player","platform",function(x,y){
+sjs.stoppedBy(x,y);
+if(canJump == false && x.y < y.y-66.15){
+canJump = true;
+r_track = 0;
+l_track = 0;
+}
+});
+
+sjs.onHit("player","Obsidian",function(x,y){
+sjs.stoppedBy(x,y);
+if(canJump == false && x.y < y.y-66.15){
+canJump = true;
+r_track = 0;
+l_track = 0;
+}
+});
+
+
+sjs.onHit("enemy","bottom_screen", function(x,y){
+sjs.stoppedBy(x,y);
+});
+
+sjs.onHit("Lava","player", function(x,y){
+y.destroy();
+window.location="Gameover.html";
+});
+
+sjs.onHit("enemy",["left_screen","right_screen"], function(x,y){
+sjs.bounceOff(x,y);
+});
+	
+sjs.onHit("enemy","platform", function(x,y){
+if(x.isAboveOf(y) == true){
+sjs.stoppedBy(x,y);
+} else {
+sjs.bounceOff(x,y);
+}
+});
+
+
+sjs.onHit("Icecreamm","enemy", function(x,y){
+x.destroy();
+y.destroy();
+});
+sjs.onHit("Icecreamm","Lava", function(x,y){
+x.destroy();
+var Obsidian = new sjs.Image("Images/Obsidian.png");
+Obsidian.type = "Obsidian";
+Obsidian.setSize(90,90);
+Obsidian.moveTo(y.x,y.y);
+y.destroy();
+
+});
+
+sjs.onHit("Icecreamm",["platform","jump_pad", "Soda","Coin","flag", "Icecreamm", "balloon", "Obsidian"], function(x,y){
+sjs.bounceOff(x,y);
+});
+
+sjs.onHit("Icecreamm",["right_screen","left_screen"], function(x,y){
+x.destroy();
+});
+
+
+sjs.onHit("player","enemy", function(x,y){
+if(x.isAboveOf(y) == true){
+y.destroy();
+x.pushUp(19);
+} else {
+x.destroy();
+window.location="Gameover.html";
+}
+});
+
+sjs.onHit("player","jump_pad", function(x,y){
+if(x.isAboveOf(y) == true){
+player.pushUp(70);
+} else {
+sjs.stoppedBy(x,y);
+}
+});
+
+var score = 0;
+var score_txt = new sjs.Text("Coins: 0", 21, "green");
+score_txt.right().offset(-30, 0);
+score_txt.fixed = true;
+sjs.onHit("player","Coin", function(x,y){
+score = score + 1;
+score_txt.setText("Coin :"+ score);
+localStorage.setItem("score", score);
+y.destroy();
+});
+
+
+sjs.onHit("player","Soda",function(x,y){
+	y.destroy();
+player.friction=0.17;
+setTimeout(function() {
+	player.friction=0.3;
+}, 10000)
+
+});
+
+sjs.onHit("player","balloon",function(x,y){
+sjs.stoppedBy(x,y);
+if(canJump == false && x.y < y.y-66.15){
+canJump = true;
+r_track = 0;
+l_track = 0;
+y.setGravity(0.8);
+setTimeout(function() {
+	y.destroy();
+},6000)
+}
+});
+
+
+/*var score = 0;
+var score_txt = new sjs.Text("Coins: 0", 21, "green");
+score_txt.right().offset(-30, 0);
+score_txt.fixed = true;
+sjs.onHit("player","score", function(x,y){
+score = score + 1;
+score_txt.setText("Score :"+ score);
+localStorage.setItem("score", score);
+y.destroy();
+});*/
+
+
+var flagOn = true;
+sjs.onHit("player","flag", function(x,y){
+x.stop();
+if(flagOn == true){
+flagOn = false;
+setTimeout(function(){
+y.setImage("Images/flag2.png");
+},800 );
+setTimeout(function(){
+y.setImage("Images/flag3.png");
+},1600 );
+setTimeout(function(){
+window.location = "Lime_Slime8.html";
+},2400 );
+} //end if statement
+});
+
+
+
+var canShoot = false;
+
+sjs.onHit("player","Icecream", function(x,y){
+canShoot = true;
+y.destroy();
+});
+
+// && x.y < y.y-85 after canjump
+
+//Idle
+
+window.addEventListener("keyup", function(e){
+	if(canJump == true){ //added to keep jump image above ground
+		if(e.keyCode == RIGHT_KEY){
+		player.setImage("Images/Beginning_Slime.png");
+		r_track = 0;
+		player.setSize(75,66.15);
+		} else if (e.keyCode == LEFT_KEY){
+		player.setImage("Images/Beginning_Slime.png");
+		l_track = 0;
+		player.setSize(75,66.15);
+		}// end if else
+	}
+});// end keyup
+
+
+/*
+//Power-Ups
+sjs.onHit("player","player",function(x,y){
+
+	y.destroy();
+	});
+*/
+
+
+
+
+} //end start
+
+
+
+
+
+</script>
+
+<body onload="start()">
+<h1> Platform Game </h1>
+
+
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</head>
+</html>
